@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main()
+{
+    char c;
+    FILE *file = fopen("input.txt", "r");
+    if (file == NULL)
+    {
+        printf("Error opening file");
+        return 1;
+    }
+    while ((c = getc(file)) != EOF)
+    {
+        if (c == '+' || c == '-' || c == '*' || c == '/' || c == '>' || c == '<' || c == '!' || c == '%' || c == '=')
+        {
+            printf("%c is an operator", c);
+        }
+    }
+    fclose(file);
+    return 0;
+}
